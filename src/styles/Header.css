@@ -1,0 +1,60 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2%;
+  padding: 1.2rem 2rem;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  color: white;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-left: 3%;
+}
+
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+  margin-right: 6%;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  border-radius: 2px;
+}
+
+/* Dropdown styles */
+.dropdown {
+  position: absolute;
+  top: 70px;
+  right: 10rem;
+  background-color: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  display: none;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.dropdown.open {
+  display: flex;
+}
+
+.dropdown a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.dropdown a:hover {
+  color: #FFD700;
+}

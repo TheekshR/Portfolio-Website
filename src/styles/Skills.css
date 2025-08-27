@@ -1,0 +1,73 @@
+.skills-section {
+  padding: 4rem 2rem;
+  text-align: center;
+  background: #111; 
+  color: #ffffff;
+}
+
+.skills-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  font-weight: 700;
+  color: #FFD700;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 4rem;
+  justify-items: center;
+  align-items: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.skill-item:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.skill-item svg {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  color: #e6edf3;
+  transition: color 0.3s ease;
+}
+
+.skill-item svg:hover {
+  color: #FFD700;
+}
+
+.skill-item span {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #c9d1d9;
+}
+
+.skill-item span:hover {
+  color: #FFD700;
+}
+
+/* Hover colors for some specific skills */
+.skill-item.react svg { color: #61DBFB; }
+.skill-item.node svg { color: #3C873A; }
+.skill-item.mongodb svg { color: #4DB33D; }
+.skill-item.firebase svg { color: #FFA611; }
+.skill-item.materialui svg { color: #0081CB; }
+.skill-item.html svg { color: #E34F26; }
+.skill-item.css svg { color: #1572B6; }
+.skill-item.javascript svg { color: #F7DF1E; }
+.skill-item.java svg { color: #007396; }
+.skill-item.c svg { color: #283593; }
+.skill-item.cpp svg { color: #00599C; }
+.skill-item.php svg { color: #8993BE; }
+.skill-item.sql svg { color: #E38C00; }
+.skill-item.mysql svg { color: #00618A; }
