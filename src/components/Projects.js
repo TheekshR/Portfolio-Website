@@ -21,7 +21,7 @@ const projects = [
     title: "StatTrack",
     description: "A personal finance tracker app built with Room Database and modern Android architecture.",
     tech: [<SiKotlin />, <SiAndroidstudio />, ],
-    img: "/images/stattrack.jpg",
+    img: "/images/StatTrackFlyer.png",
     live: "#",
     github: "#",
   },
@@ -47,18 +47,26 @@ export default function Projects() {
   const sectionRef = useRef(null);
 
   useEffect(() => {
-    const cards = sectionRef.current.querySelectorAll(".project-card");
-    gsap.from(cards, {
-      opacity: 0,
-      y: 50,
+  const cards = sectionRef.current.querySelectorAll(".project-card");
+  gsap.fromTo(
+    cards,
+    { opacity: 0, y: 100 },
+    {
+      opacity: 1,
+      y: 0,
       duration: 1,
-      stagger: 0.2,
+      stagger: 0.3,
+      ease: "power3.out",
       scrollTrigger: {
         trigger: sectionRef.current,
-        start: "top 80%",
+        start: "top 90%",
+        end: "bottom 50%",
+        toggleActions: "play none none reverse",
       },
-    });
-  }, []);
+    }
+  );
+}, []);
+
 
   return (
     <section className="projects-section" ref={sectionRef}>
