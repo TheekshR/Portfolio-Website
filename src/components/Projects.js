@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { FaReact, FaNodeJs, FaGithub, FaExternalLinkAlt, FaAndroid, FaCss3 } from "react-icons/fa";
-import { SiMongodb, SiFirebase, SiKotlin, SiAndroidstudio } from "react-icons/si";
+import { SiMongodb, SiFirebase, SiKotlin, SiAndroidstudio, SiMui } from "react-icons/si";
 import gsap from "gsap";
 import "../styles/Projects.css";
 
@@ -9,6 +9,14 @@ gsap.registerPlugin(ScrollTrigger);
 
 
 const projects = [
+  {
+    title: "FutureWatt",
+    description: "A Solar Energy Management System using React, MaterialUI,  Node.js, and MongoDB to optimize energy consumption.",
+    tech: [<FaReact />, <FaCss3/>, <SiMui />, <FaNodeJs/>, <SiMongodb />],
+    img: "/images/FutureWatt.jpg",
+    live: "#",
+    github: "#",
+  },
   {
     title: "StatTrack",
     description: "A personal finance tracker app built with Room Database and modern Android architecture.",
