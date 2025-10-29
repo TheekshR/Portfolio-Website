@@ -9,17 +9,8 @@
   font-size: 3rem;
   margin-bottom: 60px;
   letter-spacing: 1px;
+  color: #FFD700;
   position: relative;
-}
-
-.projects-title::after {
-  content: "";
-  display: block;
-  width: 80px;
-  height: 3px;
-  background: #00bcd4;
-  margin: 15px auto 0;
-  border-radius: 3px;
 }
 
 .projects-grid {
@@ -41,7 +32,7 @@
 
 .project-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 0 40px rgba(0, 188, 212, 0.3);
+  box-shadow: 0 0 40px rgba(229, 236, 2, 0.3);
 }
 
 .project-image {
@@ -72,7 +63,7 @@
   gap: 12px;
   margin-bottom: 20px;
   font-size: 1.5rem;
-  color: #00bcd4;
+  color: #fff;
 }
 
 .project-links {
@@ -85,8 +76,8 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  color: #fff;
-  background: #00bcd4;
+  color: #111;
+  background: #FFD700;
   padding: 8px 16px;
   border-radius: 8px;
   text-decoration: none;
@@ -95,6 +86,7 @@
 }
 
 .btn:hover {
-  background: #008c9e;
+  background: #fff;
+  color: #000;
 }
 

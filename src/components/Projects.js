@@ -11,7 +11,7 @@ gsap.registerPlugin(ScrollTrigger);
 const projects = [
   {
     title: "FutureWatt",
-    description: "A Solar Energy Management System using React, MaterialUI,  Node.js, and MongoDB to optimize energy consumption.",
+    description: "A Solar Energy Management System using React, MaterialUI,  Node.js, and MongoDB.",
     tech: [<FaReact />, <FaCss3/>, <SiMui />, <FaNodeJs/>, <SiMongodb />],
     img: "/images/FutureWatt.jpg",
     live: "#",
@@ -19,7 +19,7 @@ const projects = [
   },
   {
     title: "StatTrack",
-    description: "A personal finance tracker app built with Room Database and modern Android architecture.",
+    description: "A personal finance tracker app built with Kotlin, Room Database and modern Android architecture.",
     tech: [<SiKotlin />, <SiAndroidstudio />, ],
     img: "/images/StatTrackFlyer.png",
     live: "#",
@@ -29,7 +29,7 @@ const projects = [
     title: "Piano Web App",
     description: "A React-based piano app with recording and playback using Tone.js and Firebase Firestore.",
     tech: [<FaReact />, <FaCss3/>,  <SiFirebase />],
-    img: "/images/piano.jpg",
+    img: "/images/TuneDeckFlyer.png",
     live: "#",
     github: "#",
   },
