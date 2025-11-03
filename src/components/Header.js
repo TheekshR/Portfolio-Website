@@ -8,7 +8,7 @@ const Header = () => {
 
   return (
     <header className="header">
-      <div className="logo">Theekshana</div>
+      <div className="logo">Theekshana.</div>
       
       <div className="hamburger" onClick={toggleMenu}>
         <span className="bar" />

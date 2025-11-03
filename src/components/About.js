@@ -3,6 +3,7 @@ import '../styles/About.css';
 import Spline from '@splinetool/react-spline';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { FaDownload, FaGithub } from "react-icons/fa";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -48,11 +49,11 @@ const About = () => {
   return (
     <section className="about" id="about" ref={aboutRef}>
       <div className="about-left" ref={leftRef}>
-        <Spline scene="https://prod.spline.design/10noATBfLGwhCwrh/scene.splinecode" />
+        <Spline scene="https://prod.spline.design/BVPL4ID5MHabUVKs/scene.splinecode" />
       </div>
 
       <div className="about-right" ref={rightRef}>
-        <h2>About Me</h2>
+        <h2>ABOUT ME</h2>
         <p>
           I’m Theekshana, an udergraduate student with a strong interest in Software Engineering, Data Science
           and UI/UX designing. Over the past few years, i've done some projects using ReactJS, NodeJS, Java and Kotlin.
@@ -60,6 +61,13 @@ const About = () => {
         <p>
           My mission is to design and develop applications that balanced functionality with great user experience. 
         </p>
+        <a href="/MyCV.pdf" download className="download-btn">
+          <FaDownload style={{ marginRight: "8px" }} /> Download CV
+        </a>
+
+        <a href="/MyCV.pdf" download className="github-btn">
+          <FaGithub style={{ marginRight: "8px" }} /> Visit GitHub
+        </a>
       </div>
     </section>
   );

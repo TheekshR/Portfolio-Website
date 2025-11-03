@@ -4,7 +4,6 @@
   justify-content: space-between;
   height: 100vh;
   padding: 0 3%;
-  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
   color: white;
   overflow: hidden;
   transition: opacity 1s ease, transform 1s ease;

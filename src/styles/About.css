@@ -11,8 +11,8 @@
 
 .about-left {
   flex: 1;
-  min-width: 400px;
-  height: 500px;
+  width: 600px;
+  height: 700px;
   transform: scale(1.2) translateX(-40px); /* smaller & moved left */
   transform-origin: center;
   pointer-events: none;
@@ -32,13 +32,47 @@
 .about-right h2 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
-  color: #FFD700;
+  color: #FFD300;
 }
 
 .about-right p {
   font-size: 1.1rem;
   line-height: 1.8;
   margin-bottom: 1.2rem;
+}
+
+.download-btn {
+  display: inline-block;
+  padding: 12px 28px;
+  background: linear-gradient(90deg, #FFD700, #ffae00);
+  color: #111;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.download-btn:hover {
+  transform: scale(1.05);
+  background: linear-gradient(90deg, #ffae00, #FFD700);
+}
+
+.github-btn {
+  display: inline-block;
+  padding: 12px 28px;
+  margin-left: 1.5rem;
+  background: none;
+  border: solid 1.5px #FFD700;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.github-btn:hover {
+  transform: scale(1.05);
+  background: linear-gradient(90deg, #ffae00, #FFD700);
 }
 
 /* Responsive */
