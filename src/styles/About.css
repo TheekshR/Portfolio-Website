@@ -72,7 +72,8 @@
 
 .github-btn:hover {
   transform: scale(1.05);
-  background: linear-gradient(90deg, #ffae00, #FFD700);
+  background: #fff;
+  color: #111;
 }
 
 /* Responsive */

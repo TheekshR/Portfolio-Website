@@ -61,6 +61,14 @@ const About = () => {
         <p>
           My mission is to design and develop applications that balanced functionality with great user experience. 
         </p>
+
+        <p>
+          I’m Theekshana, an udergraduate student with a strong interest in Software Engineering, Data Science
+          and UI/UX designing. Over the past few years, i've done some projects using ReactJS, NodeJS, Java and Kotlin.
+        </p>
+        <p>
+          My mission is to design and develop applications that balanced functionality with great user experience. 
+        </p>
         <a href="/MyCV.pdf" download className="download-btn">
           <FaDownload style={{ marginRight: "8px" }} /> Download CV
         </a>
