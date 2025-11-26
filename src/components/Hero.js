@@ -39,7 +39,7 @@ const Hero = () => {
         </div>
       </div>
       <div className="hero-right">
-        <Spline scene="https://prod.spline.design/AZCQW9zVN6xJaAE0/scene.splinecode" />
+        <Spline scene="https://prod.spline.design/AZCQW9zVN6xJaAE0/scene.splinecode " />
       </div>
     </section>
   );

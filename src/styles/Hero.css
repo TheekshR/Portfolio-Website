@@ -29,6 +29,7 @@
   justify-content: flex-start;
 }
 
+
 /* ====================== TEXT CONTENT ====================== */
 .hero-content {
   max-width: min(90%, 520px);
@@ -90,7 +91,7 @@
 @media (min-width: 1600px) {
   .hero { padding: 0 8rem; }
   .hero-right > *, .hero-right canvas {
-    transform: scale(1.2) translateY(-5%) translateX(-5%) !important;
+    transform: scale(1.0) translateY(-5%) translateX(-5%) !important;
   }
 }
 
@@ -101,7 +102,7 @@
   .hero3 { font-size: clamp(0.9rem, 2.2vw, 1.2rem); }
 
   .hero-right > *, .hero-right canvas {
-    transform: scale(1.1) translateY(-4%) translateX(-8%) !important;  /* ← Slightly smaller */
+    transform: scale(0.9) translateY(-4%) translateX(-5%) !important;  /* ← Slightly smaller */
   }
 }
 
@@ -110,7 +111,7 @@
   .hero1 { font-size: clamp(1.4rem, 3.8vw, 2rem); }
   .hero2 { font-size: clamp(3.5rem, 8vw, 6rem); }
   .hero-right > *, .hero-right canvas {
-    transform: scale(0.9) translateY(-3%) translateX(-7%)  !important;
+    transform: scale(0.8) translateY(-3%) translateX(-7%)  !important;
   }
 }
 
