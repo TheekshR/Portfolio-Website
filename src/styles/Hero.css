@@ -12,7 +12,6 @@
   position: relative;
 }
 
-
 /* ====================== LEFT & RIGHT ====================== */
 .hero-left,
 .hero-right {
@@ -29,38 +28,16 @@
   justify-content: flex-start;
 }
 
-
 /* ====================== TEXT CONTENT ====================== */
 .hero-content {
   max-width: min(90%, 520px);
 }
 
-.hero1 {
-  font-size: clamp(1.4rem, 4.5vw, 2.8rem);
-  font-weight: 600;
-  color: #FFD700;
-  margin: 0 0 0.4rem;
-  letter-spacing: 0.5px;
-}
+.hero1 { font-size: clamp(1.4rem, 4.5vw, 2.8rem); font-weight: 600; color: #FFD700; margin: 0 0 0.4rem; letter-spacing: 0.5px; }
+.hero2 { font-size: clamp(3.5rem, 11vw, 10rem); font-weight: 900; color: #fff; margin: 0; line-height: 0.95; letter-spacing: -1px; }
+.hero3 { font-size: clamp(1rem, 2.8vw, 1.6rem); color: #e2e8f0; margin: 0.8rem 0 0; white-space: nowrap; line-height: 1.4; }
 
-.hero2 {
-  font-size: clamp(3.5rem, 11vw, 10rem);
-  font-weight: 900;
-  color: #fff;
-  margin: 0;
-  line-height: 0.95;
-  letter-spacing: -1px;
-}
-
-.hero3 {
-  font-size: clamp(1rem, 2.8vw, 1.6rem);
-  color: #e2e8f0;
-  margin: 0.8rem 0 0;
-  white-space: nowrap;
-  line-height: 1.4;
-}
-
-/* ====================== RIGHT SIDE – PERFECT SIZE & POSITION ====================== */
+/* ====================== RIGHT SIDE ====================== */
 .hero-right {
   flex: 1.6;
   min-height: 100vh;
@@ -82,11 +59,11 @@
   min-height: 100dvh !important;
   margin-top: 8%;
   object-fit: contain !important;
-  transform: scale(1) translateY(-4%) !important;  
+  transform: scale(1) translateY(-4%) !important;
   transform-origin: center !important;
 }
 
-/* ====================== LARGE DESKTOPS (≥1600px) ====================== */
+/* ====================== LARGE DESKTOPS ====================== */
 @media (min-width: 1600px) {
   .hero { padding: 0 8rem; }
   .hero-right > *, .hero-right canvas {
@@ -95,13 +72,15 @@
 }
 
 /* ====================== LAPTOPS (1200px – 1599px) ====================== */
-@media (max-width: 1599px) {
+@media (max-width: 1599px) and (min-width: 1200px) {
   .hero1 { font-size: clamp(1.6rem, 4vw, 2.3rem); }
   .hero2 { font-size: clamp(4rem, 9vw, 7rem); }
   .hero3 { font-size: clamp(0.9rem, 2.2vw, 1.2rem); }
 
   .hero-right > *, .hero-right canvas {
-    transform: scale(0.9) translateY(-6%) translateX(-5%) !important; 
+    width: 110% !important;
+    margin-left: -4% !important;
+    transform: scale(0.9) translateY(-10%) translateX(-3.5%) !important;
   }
 }
 
@@ -110,67 +89,40 @@
   .hero1 { font-size: clamp(1.4rem, 3.8vw, 2rem); }
   .hero2 { font-size: clamp(3.5rem, 8vw, 6rem); }
   .hero-right > *, .hero-right canvas {
-    transform: scale(0.8) translateY(-3%) translateX(-7%)  !important;
+    transform: scale(0.8) translateY(-3%) translateX(-7%) !important;
   }
 }
 
-/* ====================== TABLETS (≤1024px) ====================== */
+/* ====================== TABLETS & MOBILE ====================== */
 @media (max-width: 1024px) {
-  .hero {
-    flex-direction: column;
-    text-align: center;
-    padding: 2rem 1.5rem;
-    gap: 2rem;
-  }
-
-  .hero-left,
-  .hero-right {
-    width: 100%;
-    flex: none;
-  }
-
+  .hero { flex-direction: column; text-align: center; padding: 2rem 1.5rem; gap: 2rem; }
+  .hero-left, .hero-right { width: 100%; flex: none; }
   .hero-content { max-width: 100%; }
   .hero3 { white-space: normal; }
-
-  .hero-right { 
-    min-height: 60vh; 
-    max-height: 500px;
-  }
+  .hero-right { min-height: 60vh; max-height: 500px; }
   .hero-right > *, .hero-right canvas {
     transform: scale(1) translateY(0) !important;
   }
 }
 
-/* ====================== MOBILE (≤768px) ====================== */
 @media (max-width: 768px) {
   .hero1 { font-size: 1.6rem; }
   .hero2 { font-size: 4.5rem; }
-  .hero-right { 
-    min-height: 50vh; 
-    max-height: 380px; 
-  }
+  .hero-right { min-height: 50vh; max-height: 380px; }
 }
 
-/* ====================== SMALL MOBILE ====================== */
 @media (max-width: 480px) {
   .hero1 { font-size: 1.3rem; }
   .hero2 { font-size: 3.2rem; }
-  .hero-right { 
-    min-height: 45vh; 
-    max-height: 300px; 
-  }
+  .hero-right { min-height: 45vh; max-height: 300px; }
 }
 
 @media (max-width: 360px) {
   .hero { padding: 1.5rem 1rem; }
   .hero2 { font-size: 2.8rem; }
-  .hero-right { 
-    min-height: 40vh; 
-    max-height: 250px; 
-  }
+  .hero-right { min-height: 40vh; max-height: 250px; }
 }
 
-/* ====================== SAFE AREA ====================== */
 @supports (padding: max(0px)) {
   .hero {
     padding-left: max(env(safe-area-inset-left), clamp(2rem, 6vw, 6rem));
