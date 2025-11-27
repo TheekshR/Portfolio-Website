@@ -35,7 +35,6 @@
   max-width: min(90%, 520px);
 }
 
-/* FLUID TYPOGRAPHY - Scales with viewport width */
 .hero1 {
   font-size: clamp(1.4rem, 4.5vw, 2.8rem);
   font-weight: 600;
@@ -83,7 +82,7 @@
   min-height: 100dvh !important;
   margin-top: 8%;
   object-fit: contain !important;
-  transform: scale(1) translateY(-4%) !important;  /* REDUCED FROM 2.0 → 1.5 */
+  transform: scale(1) translateY(-4%) !important;  
   transform-origin: center !important;
 }
 
@@ -91,7 +90,7 @@
 @media (min-width: 1600px) {
   .hero { padding: 0 8rem; }
   .hero-right > *, .hero-right canvas {
-    transform: scale(1.0) translateY(-5%) translateX(-5%) !important;
+    transform: scale(1.0) translateY(-7%) translateX(-5%) !important;
   }
 }
 
@@ -102,7 +101,7 @@
   .hero3 { font-size: clamp(0.9rem, 2.2vw, 1.2rem); }
 
   .hero-right > *, .hero-right canvas {
-    transform: scale(0.9) translateY(-4%) translateX(-5%) !important;  /* ← Slightly smaller */
+    transform: scale(0.9) translateY(-6%) translateX(-5%) !important; 
   }
 }
 
