@@ -80,8 +80,8 @@ export default function Experience() {
             <div className="timeline-item" ref={(el) => (itemRefs.current[3] = el)}>
               <div className="timeline-dot"></div>
               <div className="timeline-content">
-                <h4>BSc (Hons) in Computer Science</h4>
-                <p className="period">2024 Nov - Present</p>
+                <h4>BSc (Hons) in Data Science</h4>
+                <p className="period">2023 July - Present</p>
                 <p>Undergraduate student specializing in Data Science.</p>
               </div>
             </div>
@@ -89,7 +89,7 @@ export default function Experience() {
             <div className="timeline-item" ref={(el) => (itemRefs.current[4] = el)}>
               <div className="timeline-dot"></div>
               <div className="timeline-content">
-                <h4>GCE Advanced Level - Ranabima Royal College</h4>
+                <h4>GCE A/L - Ranabima Royal College</h4>
                 <p className="period">2018 - 2020</p>
                 <p>Completed GCE A/Ls in the Physical Science stream with 2Cs and 1S.</p>
               </div>
@@ -98,7 +98,7 @@ export default function Experience() {
             <div className="timeline-item" ref={(el) => (itemRefs.current[5] = el)}>
               <div className="timeline-dot"></div>
               <div className="timeline-content">
-                <h4>GCE Ordinary Level - Ranabima Royal College</h4>
+                <h4>GCE O/L - Ranabima Royal College</h4>
                 <p className="period">2017</p>
                 <p>Completed GCE O/Ls with 8As and 1B.</p>
               </div>
