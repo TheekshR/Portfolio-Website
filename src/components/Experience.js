@@ -99,7 +99,7 @@ export default function Experience() {
               <div className="timeline-dot"></div>
               <div className="timeline-content">
                 <h4>GCE Ordinary Level - Ranabima Royal College</h4>
-                <p className="period">2015 - 2020</p>
+                <p className="period">2017</p>
                 <p>Completed GCE O/Ls with 8As and 1B.</p>
               </div>
             </div>
