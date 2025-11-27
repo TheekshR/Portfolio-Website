@@ -47,27 +47,27 @@ export default function Experience() {
             <div className="timeline-item" ref={(el) => (itemRefs.current[0] = el)}>
               <div className="timeline-dot"></div>
               <div className="timeline-content">
-                <h4>Frontend Developer - Freelance</h4>
-                <p className="period">2023 - Present</p>
-                <p>Building interactive web apps using React, GSAP, and Firebase.</p>
+                <h4>UI Designer - DynamicBiz</h4>
+                <p className="period">2024 Nov - Present</p>
+                <p>Designing user friendly interfaces for web applications.</p>
               </div>
             </div>
 
             <div className="timeline-item" ref={(el) => (itemRefs.current[1] = el)}>
               <div className="timeline-dot"></div>
               <div className="timeline-content">
-                <h4>Mobile App Developer - StatTrack</h4>
-                <p className="period">2024</p>
-                <p>Developed a personal finance tracker using Kotlin and Room DB.</p>
+                <h4>UI Designer - Freelance</h4>
+                <p className="period">2024 - Present</p>
+                <p>Creating modern UI designs and prototypes using Figma.</p>
               </div>
             </div>
 
             <div className="timeline-item" ref={(el) => (itemRefs.current[2] = el)}>
               <div className="timeline-dot"></div>
               <div className="timeline-content">
-                <h4>UI/UX Designer - Freelance</h4>
-                <p className="period">2022 - 2023</p>
-                <p>Created modern UI designs and prototypes using Figma.</p>
+                <h4>Graphic Designer - Freelance</h4>
+                <p className="period">2023 - 2024</p>
+                <p>Designing flyers and posters for clients.</p>
               </div>
             </div>
           </div>
@@ -81,26 +81,26 @@ export default function Experience() {
               <div className="timeline-dot"></div>
               <div className="timeline-content">
                 <h4>BSc (Hons) in Computer Science</h4>
-                <p className="period">2022 - Present</p>
-                <p>Undergraduate student specializing in software engineering and AI.</p>
+                <p className="period">2024 Nov - Present</p>
+                <p>Undergraduate student specializing in Data Science.</p>
               </div>
             </div>
 
             <div className="timeline-item" ref={(el) => (itemRefs.current[4] = el)}>
               <div className="timeline-dot"></div>
               <div className="timeline-content">
-                <h4>Diploma in Web Development</h4>
-                <p className="period">2021 - 2022</p>
-                <p>Learned front-end and back-end technologies for full-stack development.</p>
+                <h4>GCE Advanced Level - Ranabima Royal College</h4>
+                <p className="period">2018 - 2020</p>
+                <p>Completed GCE A/Ls in the Physical Science stream with 2Cs and 1S.</p>
               </div>
             </div>
 
             <div className="timeline-item" ref={(el) => (itemRefs.current[5] = el)}>
               <div className="timeline-dot"></div>
               <div className="timeline-content">
-                <h4>High School Education</h4>
+                <h4>GCE Ordinary Level - Ranabima Royal College</h4>
                 <p className="period">2015 - 2020</p>
-                <p>Completed GCE A/Ls in the Physical Science stream.</p>
+                <p>Completed GCE O/Ls with 8As and 1B.</p>
               </div>
             </div>
           </div>
