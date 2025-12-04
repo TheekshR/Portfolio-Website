@@ -121,7 +121,7 @@ export default function Contact() {
       {/* LEFT SIDE: Contact Me */}
       {/* --------------------- */}
       <div className="form-contact">
-        <h2>CONTACT ME ✨</h2>
+        <h2>CONTACT ME</h2>
 
         {contactSent ? (
           <p className="success-message">Message sent! 🎉</p>
