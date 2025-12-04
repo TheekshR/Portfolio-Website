@@ -33,7 +33,7 @@ const projects = [
     description:
       "A 3D animated portfolio site built with React, GSAP, and Spline for immersive visuals.",
     tech: [<FaReact />, <FaNodeJs />],
-    img: "/images/portfolio.jpg",
+    img: "/images/Portfolio Flyer.png",
     github: "#",
   },
 ];

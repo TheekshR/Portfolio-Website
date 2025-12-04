@@ -67,7 +67,7 @@ export default function Experience() {
               <div className="timeline-content">
                 <h4>Graphic Designer - Freelance</h4>
                 <p className="period">2023 - 2024</p>
-                <p>Designing flyers and posters for clients.</p>
+                <p>Designed flyers and posters for clients.</p>
               </div>
             </div>
           </div>
