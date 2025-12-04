@@ -163,7 +163,7 @@ export default function Contact() {
       {/* RIGHT SIDE: Feedback  */}
       {/* --------------------- */}
       <div className="form-feedback">
-        <h2>QUICK FEEDBACK 😎</h2>
+        <h2>QUICK FEEDBACK</h2>
 
         {feedbackSent ? (
           <p className="success-message">Thanks for your feedback! 🌟</p>
