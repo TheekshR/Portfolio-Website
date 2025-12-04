@@ -64,7 +64,7 @@ export default function Contact() {
       <div className="form-contact">
         <h2>Contact Me ✨</h2>
         {contactSent ? (
-          <p className="success-message">Message sent! 🎉👽</p>
+          <p className="success-message">Message sent! 🎉</p>
         ) : (
           <form onSubmit={sendContactForm}>
             <input
@@ -91,7 +91,7 @@ export default function Contact() {
               onChange={handleContactChange}
               required
             />
-            <button type="submit">Send Message 🚀</button>
+            <button type="submit">Send Message</button>
           </form>
         )}
       </div>
@@ -121,7 +121,7 @@ export default function Contact() {
               value={feedbackForm.suggestions}
               onChange={(e) => setFeedbackForm({ ...feedbackForm, suggestions: e.target.value })}
             />
-            <button type="submit">Send Feedback 🎯</button>
+            <button type="submit">Send Feedback</button>
           </form>
         )}
       </div>

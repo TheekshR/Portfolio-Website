@@ -34,7 +34,7 @@ input, textarea {
   font-size: 1rem;
 }
 input:focus, textarea:focus {
-  outline: 2px solid #FFD700;
+  outline: 1px solid #FFD700;
 }
 
 /* Buttons */
