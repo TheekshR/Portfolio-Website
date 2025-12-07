@@ -17,9 +17,12 @@ const Header = () => {
       </div>
 
       <nav className={`dropdown ${isOpen ? 'open' : ''}`}>
+        <a href="#home" onClick={() => setIsOpen(false)}>Home</a>
         <a href="#about" onClick={() => setIsOpen(false)}>About Me</a>
-        <a href="#Skills" onClick={() => setIsOpen(false)}>Skills</a>
+        <a href="#experiences" onClick={() => setIsOpen(false)}>Experiences</a>
+        <a href="#skills" onClick={() => setIsOpen(false)}>Skills</a>
         <a href="#projects" onClick={() => setIsOpen(false)}>Projects</a>
+        <a href="#contact" onClick={() => setIsOpen(false)}>Contact Me</a>
       </nav>
     </header>
   );
