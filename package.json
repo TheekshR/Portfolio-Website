@@ -2,7 +2,7 @@
   "name": "my-portfolio",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://TheekshR.github.io/portfolio-Website",
+  "homepage": "https://TheekshR.github.io/Portfolio-Website",
 
   "dependencies": {
     "@react-three/drei": "^10.3.0",
