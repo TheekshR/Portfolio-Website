@@ -119,7 +119,7 @@ const sendFeedbackForm = async (e) => {
 
 
   return (
-    <div className="contact-container">
+    <div className="contact-container" id="contact">
 
       {/* LEFT SIDE: Contact Me */}
 

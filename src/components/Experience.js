@@ -37,7 +37,7 @@ export default function Experience() {
   }, []);
 
   return (
-    <section className="dual-timeline-section">
+    <section className="dual-timeline-section" id="experiences">
       <h2 className="section-title">EDUCATION & EXPERIENCE</h2>
       <div className="dual-timeline-container">
         {/* LEFT SIDE - EXPERIENCE */}
