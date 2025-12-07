@@ -57,7 +57,7 @@ export default function Projects() {
   const currentProject = projects[currentIndex];
 
   return (
-    <section className="projects-section">
+    <section className="projects-section" id="projects">
       <h2>MY PROJECTS</h2>
 
       {/* ✅ Buttons should be outside .project-card but inside section */}

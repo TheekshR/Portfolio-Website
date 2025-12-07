@@ -95,13 +95,29 @@
 
 /* ====================== TABLETS & MOBILE ====================== */
 @media (max-width: 1024px) {
-  .hero { flex-direction: column; text-align: center; padding: 2rem 1.5rem; gap: 2rem; }
-  .hero-left, .hero-right { width: 100%; flex: none; }
-  .hero-content { max-width: 100%; }
-  .hero3 { white-space: normal; }
-  .hero-right { min-height: 60vh; max-height: 500px; }
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem 1.5rem;
+    gap: 2rem; }
+  .hero-left, .hero-right {
+    width: 100%;
+    flex: none; }
+
+    .hero-left {
+      justify-content: center;
+      margin-left: 0;
+      margin-top: 20%;
+    }
+  .hero-content {
+    max-width: 100%; }
+  .hero3 {
+    white-space: normal; }
+  .hero-right {
+    min-height: 100vh;
+    max-height: 100px; }
   .hero-right > *, .hero-right canvas {
-    transform: scale(1) translateY(0) !important;
+    transform: scale(0.84) translateY(0) !important;
   }
 }
 
@@ -109,6 +125,7 @@
   .hero1 { font-size: 1.6rem; }
   .hero2 { font-size: 4.5rem; }
   .hero-right { min-height: 50vh; max-height: 380px; }
+  
 }
 
 @media (max-width: 480px) {

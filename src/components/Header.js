@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-scroll';
 import '../styles/Header.css';
 
 const Header = () => {
@@ -17,12 +18,12 @@ const Header = () => {
       </div>
 
       <nav className={`dropdown ${isOpen ? 'open' : ''}`}>
-        <a href="#home" onClick={() => setIsOpen(false)}>Home</a>
-        <a href="#about" onClick={() => setIsOpen(false)}>About Me</a>
-        <a href="#experiences" onClick={() => setIsOpen(false)}>Experiences</a>
-        <a href="#skills" onClick={() => setIsOpen(false)}>Skills</a>
-        <a href="#projects" onClick={() => setIsOpen(false)}>Projects</a>
-        <a href="#contact" onClick={() => setIsOpen(false)}>Contact Me</a>
+        <Link to="home" smooth={true} offset={-70} duration={500} onClick={() => setIsOpen(false)}>Home</Link>
+        <Link to="about" smooth={true} offset={-70} duration={500} onClick={() => setIsOpen(false)}>About Me</Link>
+        <Link to="experiences" smooth={true} offset={-70} duration={500} onClick={() => setIsOpen(false)}>Experiences</Link>
+        <Link to="skills" smooth={true} offset={-70} duration={500} onClick={() => setIsOpen(false)}>Skills</Link>
+        <Link to="projects" smooth={true} offset={-70} duration={500} onClick={() => setIsOpen(false)}>Projects</Link>
+        <Link to="contact" smooth={true} offset={-70} duration={500} onClick={() => setIsOpen(false)}>Contact Me</Link>
       </nav>
     </header>
   );
