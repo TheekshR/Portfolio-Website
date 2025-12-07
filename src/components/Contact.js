@@ -6,7 +6,8 @@ import {
   doc,
   updateDoc,
   setDoc,
-  onSnapshot
+  onSnapshot,
+  collection
 } from "firebase/firestore";
 
 export default function Contact() {
@@ -54,9 +55,9 @@ export default function Contact() {
     return () => unsubscribe();
   }, []);
 
-  // ---------------------------
-  // ✉ NORMAL CONTACT FORM
-  // ---------------------------
+
+//NORMAL CONTACT FORM
+
   const handleContactChange = (e) => {
     setContactForm({ ...contactForm, [e.target.name]: e.target.value });
   };
@@ -66,8 +67,8 @@ export default function Contact() {
 
     emailjs
       .send(
-        "service_sjece3m",
-        "template_vt3a1ie",
+        "service_83em2qf",
+        "template_1g3fiai",
         contactForm,
         "4aaLUcaPg7z96YEvS"
       )
@@ -84,42 +85,44 @@ export default function Contact() {
     setFeedbackForm({ ...feedbackForm, reaction: emoji });
   };
 
-  const sendFeedbackForm = async (e) => {
-    e.preventDefault();
+const sendFeedbackForm = async (e) => {
+  e.preventDefault();
 
-    if (!feedbackForm.reaction) {
-      alert("Please select an emoji 😅");
-      return;
-    }
+  if (!feedbackForm.reaction) {
+    alert("Please select an emoji 😅");
+    return;
+  }
 
-    // Send feedback to your email
-    emailjs
-      .send(
-        "service_sjece3m",
-        "template_y9oxglt",
-        feedbackForm,
-        "4aaLUcaPg7z96YEvS"
-      )
-      .then(async () => {
-        setFeedbackSent(true);
+  try {
+    // 1️⃣ Update counter in Firestore
+    const countsRef = doc(db, "feedback", "counts");
+    await updateDoc(countsRef, {
+      [feedbackForm.reaction]: feedbackCount[feedbackForm.reaction] + 1
+    });
 
-        // Update counter in Firebase
-        const countsRef = doc(db, "feedback", "counts");
-        await updateDoc(countsRef, {
-          [feedbackForm.reaction]:
-            feedbackCount[feedbackForm.reaction] + 1
-        });
+    // 2️⃣ Save the feedback message in Firestore
+    const newFeedbackRef = doc(collection(db, "feedback", "messages", "entries"));
+    await setDoc(newFeedbackRef, {
+      reaction: feedbackForm.reaction,
+      suggestions: feedbackForm.suggestions,
+      timestamp: new Date(),
+    });
 
-        setFeedbackForm({ reaction: "", suggestions: "" });
-      })
-      .catch((err) => alert("Error sending feedback: " + err.text));
-  };
+    // Reset form & show success
+    setFeedbackSent(true);
+    setFeedbackForm({ reaction: "", suggestions: "" });
+
+  } catch (err) {
+    alert("Error saving feedback: " + err);
+  }
+};
+
 
   return (
     <div className="contact-container">
-      {/* --------------------- */}
+
       {/* LEFT SIDE: Contact Me */}
-      {/* --------------------- */}
+
       <div className="form-contact">
         <h2>CONTACT ME</h2>
 
@@ -159,9 +162,8 @@ export default function Contact() {
         )}
       </div>
 
-      {/* --------------------- */}
       {/* RIGHT SIDE: Feedback  */}
-      {/* --------------------- */}
+
       <div className="form-feedback">
         <h2>QUICK FEEDBACK</h2>
 
