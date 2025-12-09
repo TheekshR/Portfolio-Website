@@ -7,11 +7,16 @@ import {
   updateDoc,
   setDoc,
   onSnapshot,
-  collection
+  collection,
+  serverTimestamp,
+  increment,
+  addDoc
 } from "firebase/firestore";
 
 export default function Contact() {
-  // Normal contact form
+  // -----------------------------
+  // CONTACT FORM
+  // -----------------------------
   const [contactForm, setContactForm] = useState({
     name: "",
     email: "",
@@ -19,31 +24,32 @@ export default function Contact() {
   });
   const [contactSent, setContactSent] = useState(false);
 
-  // Feedback form
+  // -----------------------------
+  // FEEDBACK FORM
+  // -----------------------------
   const [feedbackForm, setFeedbackForm] = useState({
     reaction: "",
     suggestions: ""
   });
   const [feedbackSent, setFeedbackSent] = useState(false);
 
-  // Live feedback counts from Firebase
   const [feedbackCount, setFeedbackCount] = useState({
     "👍": 0,
     "❤️": 0,
     "👎": 0
   });
 
-  // ---------------------------
-  // 🚀 Real-time Firestore Listener
-  // ---------------------------
+  // -----------------------------
+  // FIRESTORE LIVE LISTENER FOR EMOJI COUNTS
+  // -----------------------------
   useEffect(() => {
-    const countsRef = doc(db, "feedback", "counts");
+    const countsRef = doc(db, "feedbacks", "count");
 
     const unsubscribe = onSnapshot(countsRef, (snapshot) => {
       if (snapshot.exists()) {
         setFeedbackCount(snapshot.data());
       } else {
-        // Auto-create if missing
+        // Initialize counts if missing
         setDoc(countsRef, {
           "👍": 0,
           "❤️": 0,
@@ -55,9 +61,9 @@ export default function Contact() {
     return () => unsubscribe();
   }, []);
 
-
-//NORMAL CONTACT FORM
-
+  // -----------------------------
+  // CONTACT FORM HANDLERS
+  // -----------------------------
   const handleContactChange = (e) => {
     setContactForm({ ...contactForm, [e.target.name]: e.target.value });
   };
@@ -67,10 +73,10 @@ export default function Contact() {
 
     emailjs
       .send(
-        "service_83em2qf",
-        "template_1g3fiai",
+        "YOUR_SERVICE_ID",
+        "YOUR_TEMPLATE_ID_CONTACT",
         contactForm,
-        "4aaLUcaPg7z96YEvS"
+        "YOUR_PUBLIC_KEY"
       )
       .then(() => {
         setContactSent(true);
@@ -79,13 +85,12 @@ export default function Contact() {
       .catch((err) => alert("Error sending message: " + err.text));
   };
 
+  // -----------------------------
+  // FEEDBACK FORM HANDLERS
+  // -----------------------------
+  const selectReaction = (emoji) => setFeedbackForm({ ...feedbackForm, reaction: emoji });
 
-  //FEEDBACK FORM
-  const selectReaction = (emoji) => {
-    setFeedbackForm({ ...feedbackForm, reaction: emoji });
-  };
-
-const sendFeedbackForm = async (e) => {
+  const sendFeedbackForm = async (e) => {
   e.preventDefault();
 
   if (!feedbackForm.reaction) {
@@ -94,38 +99,34 @@ const sendFeedbackForm = async (e) => {
   }
 
   try {
-    // 1️⃣ Update counter in Firestore
-    const countsRef = doc(db, "feedback", "counts");
-    await updateDoc(countsRef, {
-      [feedbackForm.reaction]: feedbackCount[feedbackForm.reaction] + 1
-    });
+    // 1️⃣ Increment emoji count (unchanged — this works)
+    const countsRef = doc(db, "feedbacks", "count");
+    await updateDoc(countsRef, { [feedbackForm.reaction]: increment(1) });
 
-    // 2️⃣ Save the feedback message in Firestore
-    const newFeedbackRef = doc(collection(db, "feedback", "messages", "entries"));
-    await setDoc(newFeedbackRef, {
+    // 2️⃣ Save feedback message (fixed path + use addDoc for auto-ID)
+    const messagesRef = collection(db, "feedback_messages");  // ← Top-level collection (1 segment)
+    await addDoc(messagesRef, {
       reaction: feedbackForm.reaction,
       suggestions: feedbackForm.suggestions,
-      timestamp: new Date(),
+      timestamp: serverTimestamp()
     });
 
-    // Reset form & show success
     setFeedbackSent(true);
     setFeedbackForm({ reaction: "", suggestions: "" });
-
   } catch (err) {
-    alert("Error saving feedback: " + err);
+    console.error("Error saving feedback:", err);
+    alert("Error saving feedback: " + err.message);
   }
 };
+
 
 
   return (
     <div className="contact-container" id="contact">
 
-      {/* LEFT SIDE: Contact Me */}
-
+      {/* ----------------- CONTACT FORM ----------------- */}
       <div className="form-contact">
         <h2>CONTACT ME</h2>
-
         {contactSent ? (
           <p className="success-message">Message sent! 🎉</p>
         ) : (
@@ -138,7 +139,6 @@ const sendFeedbackForm = async (e) => {
               onChange={handleContactChange}
               required
             />
-
             <input
               type="email"
               name="email"
@@ -147,7 +147,6 @@ const sendFeedbackForm = async (e) => {
               onChange={handleContactChange}
               required
             />
-
             <textarea
               name="message"
               placeholder="Your Message"
@@ -156,49 +155,38 @@ const sendFeedbackForm = async (e) => {
               onChange={handleContactChange}
               required
             />
-
             <button type="submit">Send Message</button>
           </form>
         )}
       </div>
 
-      {/* RIGHT SIDE: Feedback  */}
-
+      {/* ----------------- FEEDBACK FORM ----------------- */}
       <div className="form-feedback">
         <h2>QUICK FEEDBACK</h2>
-
         {feedbackSent ? (
           <p className="success-message">Thanks for your feedback! 🌟</p>
         ) : (
           <form onSubmit={sendFeedbackForm}>
             <div className="emoji-buttons">
-              {["👍", "❤️", "👎"].map((emoji) => (
+              {["👍","❤️","👎"].map((emoji) => (
                 <div
                   key={emoji}
-                  className={`emoji-btn ${
-                    feedbackForm.reaction === emoji ? "selected" : ""
-                  }`}
+                  className={`emoji-btn ${feedbackForm.reaction === emoji ? "selected" : ""}`}
                   onClick={() => selectReaction(emoji)}
                 >
-                  {emoji}
-                  <span className="count">{feedbackCount[emoji]}</span>
+                  {emoji} <span className="count">{feedbackCount[emoji]}</span>
                 </div>
               ))}
             </div>
-
             <textarea
               name="suggestions"
               placeholder="Any suggestions to improve my portfolio?"
               rows="4"
               value={feedbackForm.suggestions}
               onChange={(e) =>
-                setFeedbackForm({
-                  ...feedbackForm,
-                  suggestions: e.target.value
-                })
+                setFeedbackForm({ ...feedbackForm, suggestions: e.target.value })
               }
             />
-
             <button type="submit">Send Feedback</button>
           </form>
         )}

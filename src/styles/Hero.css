@@ -116,9 +116,6 @@
   .hero-right {
     min-height: 100vh;
     max-height: 100px; }
-  .hero-right > *, .hero-right canvas {
-    transform: scale(0.84) translateY(0) !important;
-  }
 }
 
 @media (max-width: 768px) {
