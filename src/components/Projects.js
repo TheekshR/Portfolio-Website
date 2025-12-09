@@ -9,7 +9,7 @@ const projects = [
     description:
       "A Solar Energy Management System using React, MaterialUI, Node.js, and MongoDB.",
     tech: [<FaReact />, <FaCss3 />, <SiMui />, <FaNodeJs />, <SiMongodb />],
-    img: "/images/FutureWatt.jpg",
+    img: `${process.env.PUBLIC_URL}/images/FutureWatt.jpg`,
     github: "#",
   },
   {
@@ -17,7 +17,7 @@ const projects = [
     description:
       "A personal finance tracker app built with Kotlin, Room Database and modern Android architecture.",
     tech: [<SiKotlin />, <SiAndroidstudio />],
-    img: "/images/StatTrackFlyer.png",
+    img: `${process.env.PUBLIC_URL}/images/StatTrackFlyer.png`,
     github: "#",
   },
   {
@@ -25,15 +25,15 @@ const projects = [
     description:
       "A React-based piano app with recording and playback using Tone.js and Firebase Firestore.",
     tech: [<FaReact />, <FaCss3 />, <SiFirebase />],
-    img: "/images/TuneDeckFlyer.png",
+    img: `${process.env.PUBLIC_URL}/images/TuneDeckFlyer.png`,
     github: "#",
   },
   {
-    title: "Portfolio Website",
+    title: "PortfolioWebsite",
     description:
       "A 3D animated portfolio site built with React, GSAP, and Spline for immersive visuals.",
     tech: [<FaReact />, <FaCss3 />, <FaNodeJs />, <SiFirebase />],
-    img: "/images/Portfolio Flyer.png",
+    img: `${process.env.PUBLIC_URL}/images/PortfolioFlyer.png`,
     github: "#",
   },
 ];
@@ -60,7 +60,6 @@ export default function Projects() {
     <section className="projects-section" id="projects">
       <h2>MY PROJECTS</h2>
 
-      {/* ✅ Buttons should be outside .project-card but inside section */}
       <button onClick={prevSlide} className="nav-btn left">‹</button>
       <button onClick={nextSlide} className="nav-btn right">›</button>
 
