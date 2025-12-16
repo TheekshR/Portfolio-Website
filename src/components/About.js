@@ -62,13 +62,16 @@ const About = () => {
           My mission is to design and develop applications that balanced functionality with great user experience. 
         </p>
 
-        <a href="/Theekshana_CV.pdf" download className="download-btn">
-          <FaDownload style={{ marginRight: "8px" }} /> Download CV
-        </a>
+        <div className="button-group">
+          <a href={`${process.env.PUBLIC_URL}/Theekshana_CV.pdf`} download className="download-btn">
+            <FaDownload /> Download CV
+          </a>
 
-        <a href="https://github.com/TheekshR" target="_blank" rel="noopener noreferrer" className="github-btn">
-          <FaGithub style={{ marginRight: "8px"}} /> Visit GitHub
-        </a>
+          <a href="https://github.com/TheekshR" target="_blank" rel="noopener noreferrer" className="github-btn">
+            <FaGithub /> Visit GitHub
+          </a>
+        </div>
+
       </div>
     </section>
   );
