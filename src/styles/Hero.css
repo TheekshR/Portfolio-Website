@@ -63,6 +63,9 @@
   transform-origin: center !important;
 }
 
+.mobile-image {
+  display: none;
+}
 /* ====================== LARGE DESKTOPS ====================== */
 @media (min-width: 1600px) {
   .hero { padding: 0 8rem; }
@@ -121,8 +124,20 @@
 @media (max-width: 768px) {
   .hero1 { font-size: 1.6rem; }
   .hero2 { font-size: 4.5rem; }
-  .hero-right { min-height: 50vh; max-height: 380px; }
-  
+  .hero-right {
+    min-height: 50vh;
+    max-height: 380px;
+    display: none !important;
+  }
+  .hero-left {
+    width: 100%;
+    justify-content: center;
+    margin-top: 10rem;
+  }
+
+  .hero-content {
+    text-align: center;
+  }
 }
 
 @media (max-width: 480px) {
@@ -141,5 +156,31 @@
   .hero {
     padding-left: max(env(safe-area-inset-left), clamp(2rem, 6vw, 6rem));
     padding-right: max(env(safe-area-inset-right), clamp(2rem, 6vw, 6rem));
+  }
+}
+
+
+@media (max-width: 768px) {
+
+  .hero {
+    overflow-x: visible;
+  }
+
+  .hero-left {
+    justify-content: center;
+    padding: 0rem; 
+  }
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .mobile-image {
+    width: 100%;
+    max-width: 400px; 
+    margin: 0 auto 1rem auto;
+    display: block;
   }
 }
