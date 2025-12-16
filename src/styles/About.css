@@ -32,12 +32,13 @@
 
 .about-right h2 {
   font-size: 2.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
+  text-align: left;
   color: #FFD300;
 }
 
 .about-right p {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   line-height: 1.8;
   margin-bottom: 1.2rem;
 }
@@ -45,6 +46,7 @@
 .download-btn {
   display: inline-block;
   padding: 12px 28px;
+  margin-right: 1.2rem;
   background: linear-gradient(90deg, #FFD700, #ffae00);
   color: #111;
   font-weight: 600;
@@ -58,10 +60,9 @@
   background: linear-gradient(90deg, #ffae00, #FFD700);
 }
 
-.github-btn {
+.github-btn{
   display: inline-block;
   padding: 12px 28px;
-  margin-left: 1.5rem;
   background: none;
   border: solid 1.5px #FFD700;
   color: #fff;
@@ -77,34 +78,77 @@
   color: #111;
 }
 
+.github-btn svg{
+  color: #fff;
+}
+
 /* ====================== LAPTOPS (1200px – 1599px) – SMALLER 3D MODEL ====================== */
 @media (max-width: 1599px) and (min-width: 769px) {
   .about-left {
-    transform: scale(1.0) translateX(-20px) translateY(-5%) !important; /* ← Smaller & less shift */
+    transform: scale(1.0) translateX(-20px) translateY(-5%) !important;
   }
 }
 
 /* ====================== SMALLER LAPTOPS (≤1199px) ====================== */
 @media (max-width: 1199px) and (min-width: 769px) {
   .about-left {
-    transform: scale(0.95) translateX(-10px) !important; /* ← Even smaller */
+    transform: scale(0.95) translateX(-10px) !important;
   }
 }
 
-/* ====================== TABLETS & MOBILE (≤768px) ====================== */
+/* ====================== MOBILE VIEW (≤768px) – FULL WIDTH 3D MODEL ON TOP ====================== */
 @media (max-width: 768px) {
   .about {
     flex-direction: column;
     text-align: center;
-  }
-  .about-left,
-  .about-right {
-    width: 100%;
-    height: auto;
-    transform: none !important; /* reset scaling for mobile */
+    padding: 5% 5%;
   }
 
   .about-left {
-    height: 300px;
+    order: 1;
+    width: 100%;                   
+    max-width: none;               
+    height: 380px;                 
+    margin: 0 auto 3rem auto;
+    transform: scale(0.9) !important; 
+  }
+
+  .about-left canvas,
+  .about-left iframe {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important; 
+  }
+
+  .about-right {
+    order: 2;
+    width: 100%;
+    text-align: center;
+  }
+
+  .about-right h2 {
+    text-align: center;
+  }
+}
+
+/* ====================== REMOVE ABOUT 3D MODEL ON MOBILE ====================== */
+@media (max-width: 768px) {
+
+  .about-left {
+    display: none !important;
+  }
+
+  .about {
+    padding-top: 3rem;
+  }
+
+  .about-right {
+    width: 100%;
+    text-align: center;
+    margin-top: 0rem;
+  }
+
+  .about-right h2 {
+    text-align: center;
   }
 }

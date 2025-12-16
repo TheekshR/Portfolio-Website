@@ -67,7 +67,7 @@ const About = () => {
         </a>
 
         <a href="https://github.com/TheekshR" target="_blank" rel="noopener noreferrer" className="github-btn">
-          <FaGithub style={{ marginRight: "8px" }} /> Visit GitHub
+          <FaGithub style={{ marginRight: "8px"}} /> Visit GitHub
         </a>
       </div>
     </section>
