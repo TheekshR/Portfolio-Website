@@ -59,7 +59,7 @@ const About = () => {
           and UI/UX designing. Over the past few years, i've done some projects using ReactJS, NodeJS, Java and Kotlin.
         </p>
         <p>
-          My mission is to design and develop applications that balanced functionality with great user experience. 
+          My mission is to design and develop applications that balance functionality with great user experience. 
         </p>
 
         <div className="button-group">
