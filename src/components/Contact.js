@@ -49,7 +49,6 @@ export default function Contact() {
       if (snapshot.exists()) {
         setFeedbackCount(snapshot.data());
       } else {
-        // Initialize counts if missing
         setDoc(countsRef, {
           "👍": 0,
           "❤️": 0,
@@ -71,16 +70,37 @@ export default function Contact() {
   const sendContactForm = (e) => {
     e.preventDefault();
 
+
     emailjs
       .send(
-        "YOUR_SERVICE_ID",
-        "YOUR_TEMPLATE_ID_CONTACT",
+        "service_l1fh0dq",       
+        "template_acgq838",       
         contactForm,
-        "YOUR_PUBLIC_KEY"
+        "ho_GF6cSa4prPZ_vz"      
       )
       .then(() => {
         setContactSent(true);
+        // Clear the form
         setContactForm({ name: "", email: "", message: "" });
+
+        // 2️⃣ Send auto-reply to the user
+        emailjs
+          .send(
+            "service_l1fh0dq",          
+            "template_2aokkq9",      
+            {
+              to_name: contactForm.name,
+              to_email: contactForm.email
+            },
+            "ho_GF6cSa4prPZ_vz"
+          )
+          .then(() => {
+            console.log("Auto-reply sent!");
+          })
+          .catch((err) => {
+            console.error("Error sending auto-reply:", err);
+          });
+
       })
       .catch((err) => alert("Error sending message: " + err.text));
   };
@@ -91,35 +111,33 @@ export default function Contact() {
   const selectReaction = (emoji) => setFeedbackForm({ ...feedbackForm, reaction: emoji });
 
   const sendFeedbackForm = async (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  if (!feedbackForm.reaction) {
-    alert("Please select an emoji 😅");
-    return;
-  }
+    if (!feedbackForm.reaction) {
+      alert("Please select an emoji 😅");
+      return;
+    }
 
-  try {
-    // 1️⃣ Increment emoji count (unchanged — this works)
-    const countsRef = doc(db, "feedbacks", "count");
-    await updateDoc(countsRef, { [feedbackForm.reaction]: increment(1) });
+    try {
+      // Increment emoji count
+      const countsRef = doc(db, "feedbacks", "count");
+      await updateDoc(countsRef, { [feedbackForm.reaction]: increment(1) });
 
-    // 2️⃣ Save feedback message (fixed path + use addDoc for auto-ID)
-    const messagesRef = collection(db, "feedback_messages");  // ← Top-level collection (1 segment)
-    await addDoc(messagesRef, {
-      reaction: feedbackForm.reaction,
-      suggestions: feedbackForm.suggestions,
-      timestamp: serverTimestamp()
-    });
+      // Save feedback message
+      const messagesRef = collection(db, "feedback_messages");
+      await addDoc(messagesRef, {
+        reaction: feedbackForm.reaction,
+        suggestions: feedbackForm.suggestions,
+        timestamp: serverTimestamp()
+      });
 
-    setFeedbackSent(true);
-    setFeedbackForm({ reaction: "", suggestions: "" });
-  } catch (err) {
-    console.error("Error saving feedback:", err);
-    alert("Error saving feedback: " + err.message);
-  }
-};
-
-
+      setFeedbackSent(true);
+      setFeedbackForm({ reaction: "", suggestions: "" });
+    } catch (err) {
+      console.error("Error saving feedback:", err);
+      alert("Error saving feedback: " + err.message);
+    }
+  };
 
   return (
     <div className="contact-container" id="contact">
